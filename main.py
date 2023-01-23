@@ -1,4 +1,3 @@
-import asyncio
 from fastapi import FastAPI
 import pandas as pd
 
@@ -17,9 +16,9 @@ closed_deals = pd.read_csv("./clean_datasets/closed_deals.csv")
 category_name_translation = pd.read_csv("./clean_datasets/category_name_translation.csv")
 
 @app.get("/"):
-async def welcome():
+def welcome():
     return "Bienvenido a nuestra API"
 
 @app.get("/sellers")
-async def get_sellers():
+def get_sellers():
     return sellers
