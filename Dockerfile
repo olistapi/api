@@ -1,12 +1,14 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 
-ENV PYTHONUNBUFFERER 1
+WORKDIR /app
 
-COPY requirements.txt /app/requirements.txt
+COPY . .
 
-RUN pip install --no-cache-dir -r /app/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
-COPY . /app
+ENV FASTAPI main.py
+
+ENV FASTAPI_HOST 0.0.0.0
 
 EXPOSE 8000
 
